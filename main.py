@@ -1,5 +1,6 @@
-import sys, os
+import sys, os, ctypes
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class DesktopPet(QtWidgets.QLabel):
     def __init__(self, image_path):
@@ -15,9 +16,8 @@ class DesktopPet(QtWidgets.QLabel):
 
         # Remove window frame, make always on top and transparent
         self.setWindowFlags(
-            QtCore.Qt.FramelessWindowHint |
-            QtCore.Qt.WindowStaysOnTopHint |
-            QtCore.Qt.SubWindow
+            QtCore.Qt.FramelessWindowHint | 
+            QtCore.Qt.WindowStaysOnTopHint
         )
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground, True)
 
@@ -48,6 +48,8 @@ class DesktopPet(QtWidgets.QLabel):
 
         # Show the pet
         self.show()
+
+        
 
     def update_screen_rect(self):
         screen = QtWidgets.QApplication.screenAt(self.pos())
