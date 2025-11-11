@@ -50,7 +50,6 @@ class DesktopPet(QtWidgets.QLabel):
         self.show()
 
     def update_screen_rect(self):
-        """Update screen rectangle based on current pet position."""
         screen = QtWidgets.QApplication.screenAt(self.pos())
         if screen is None:
             screen = QtWidgets.QApplication.primaryScreen()
@@ -71,7 +70,6 @@ class DesktopPet(QtWidgets.QLabel):
 
             self.move(x,y)
 
-    # --- Mouse drag to move ---
     def mousePressEvent(self, event):
         if event.button() == QtCore.Qt.LeftButton:
             self.drag_position = event.globalPos() - self.frameGeometry().topLeft()
@@ -88,7 +86,7 @@ class DesktopPet(QtWidgets.QLabel):
             self.move(event.globalPos() - self.drag_position)
             event.accept()
 
-    # --- Right-click to exit ---
+
     def show_context_menu(self, pos):
         self.menu.exec_(pos)
 
@@ -96,7 +94,6 @@ class DesktopPet(QtWidgets.QLabel):
         QtWidgets.QMessageBox.information(self, " ", "Meow!")
 
 def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
     base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base_path, relative_path)
 
