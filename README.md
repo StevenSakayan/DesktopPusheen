@@ -1,5 +1,5 @@
 # Desktop Pusheen
-## A Desktop Pusheen Pet, for my partner Valentine <3
+A Desktop Pusheen Pet, for my partner Valentine <3
 
 Build exe:
 ```
